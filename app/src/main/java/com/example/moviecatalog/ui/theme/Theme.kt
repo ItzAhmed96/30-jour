@@ -1,22 +1,29 @@
 package com.example.moviecatalog.ui.theme
 
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.Color
 
-private val LightColorScheme = lightColorScheme(
-    primary = androidx.compose.ui.graphics.Color(0xFF0066CC),
-    secondary = androidx.compose.ui.graphics.Color(0xFF66BB6A),
-    tertiary = androidx.compose.ui.graphics.Color(0xFF8E24AA)
+private val LightColors = lightColorScheme(
+    primary = Color(0xFF006E51),
+    secondary = Color(0xFF00BFA5)
+)
+
+private val DarkColors = darkColorScheme(
+    primary = Color(0xFF80E27E),
+    secondary = Color(0xFF00BFA5)
 )
 
 @Composable
 fun MovieCatalogTheme(
+    darkTheme: Boolean = false,
     content: @Composable () -> Unit
 ) {
+    val colors = if (darkTheme) DarkColors else LightColors
     MaterialTheme(
-        colorScheme = LightColorScheme,
-        typography = MaterialTheme.typography,
+        colorScheme = colors,
         content = content
     )
 }
